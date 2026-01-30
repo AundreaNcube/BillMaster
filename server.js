@@ -154,7 +154,10 @@ app.delete('/api/invoices/:id', (req, res) => {
                 return;
             }
 
-            res.json({ message: "Invoice deleted successfully" });
+            res.json({ 
+                success: true,
+                message: "Invoice deleted successfully" 
+            });
         });
     });
 });
