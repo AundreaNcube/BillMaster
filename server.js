@@ -85,7 +85,7 @@ app.post('/api/invoices', (req, res) => {
 
                     res.status(201).json({
                         message: "Invoice created successfully",
-                        sucesss: true,
+                        success: true,
                         invoice_id,
                         total_amount,
                         tax_amount,
@@ -117,7 +117,7 @@ app.get('/api/invoices/:id', (req, res) => {
                 return;
             }
 
-            res.json({ ...invoice, items });
+            res.json({ invoice: { ...invoice, items }});
         });
     });
 });
@@ -130,14 +130,14 @@ app.get('/api/invoices', (req, res) => {
             return;
         }
 
-        res.json(invoices);
+        res.json({invoices});
     });
 });
 
 //delete invoice
 app.delete('/api/invoices/:id', (req, res) => {
     const { id } = req.params;
-    db.run(`DELETE FROM invoices WHERE invoice_id = ?`, [id], function (err) {
+    db.run(`DELETE FROM invoice_items WHERE invoice_id = ?`, [id], function (err) {
         if (err) {
             res.status(500).json({ error: "Failed to delete invoice - " + err.message });
             return;
@@ -160,7 +160,7 @@ app.delete('/api/invoices/:id', (req, res) => {
 });
 
 //start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
