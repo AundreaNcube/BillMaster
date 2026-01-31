@@ -30,6 +30,7 @@ function initializeDatabase() {
             total_amount REAL NOT NULL,
             tax_amount REAL NOT NULL,
             grand_total REAL NOT NULL,
+            currency TEXT DEFAULT 'USD',
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
             `);
@@ -51,7 +52,7 @@ function initializeDatabase() {
 
 //create new invoice
 app.post('/api/invoices', (req, res) => {
-    const { customer_name, customer_email, customer_phone, items, total_amount, tax_amount, grand_total } = req.body;
+    const { customer_name, customer_email, customer_phone, items, total_amount, tax_amount, grand_total, currency } = req.body;
 
     //validation check
     if (!customer_name || !items || items.length === 0) {
@@ -61,8 +62,8 @@ app.post('/api/invoices', (req, res) => {
 
     db.run
         (
-            `INSERT INTO invoices (customer_name, customer_email, customer_phone, total_amount, tax_amount, grand_total) VALUES (?, ?, ?, ?, ?, ?)`,
-            [customer_name, customer_email, customer_phone, total_amount, tax_amount, grand_total],
+            `INSERT INTO invoices (customer_name, customer_email, customer_phone, total_amount, tax_amount, grand_total, currency) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [customer_name, customer_email, customer_phone, total_amount, tax_amount, grand_total, currency || 'USD'],
             function (err) {
                 if (err) {
                     res.status(500).json({ error: "Failed to create invoice - " + err.message });
