@@ -115,6 +115,6 @@ DELETE /api/invoices/:id
 ```
 
 ## Author
-- Aundrea Ncube
-[GitHub](https://github.com/AundreaNcube) and 
-   [LinkedIn](https://www.linkedin.com/in/aundrea-ncube/)
+ Aundrea Ncube
+- [GitHub](https://github.com/AundreaNcube) 
+- [LinkedIn](https://www.linkedin.com/in/aundrea-ncube/)
