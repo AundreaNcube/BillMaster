@@ -4,7 +4,8 @@ Full-stack invoice system transforming retail billing from manual to automated. 
 ## Features
 
 - **Automated Invoice Generation**: Create professional PDF invoices with a single click.
-- **Email Receipts**: Automatically send email receipts to customers.
+- **Multi-Currency**: Support for various currencies based on user preference.
+- **Invoice History**: Store and retrieve past invoices easily.
 - **Tax Calculation**: Automatically calculate applicable taxes based on location.
 - **User-Friendly Interface**: Intuitive design for easy navigation and operation.
 - **Real-time Calculations**: Instant updates on totals and taxes as items are added.
@@ -13,7 +14,7 @@ Full-stack invoice system transforming retail billing from manual to automated. 
 - Frontend: HTML5, CSS3, Vanilla JavaScript
 - Backend: Node.js, Express.js
 - Database: SQLite3
-- PDF Generation: pdfkit
+- Version Control: Git & GitHub
 
 ## Installation
 
@@ -49,24 +50,24 @@ Full-stack invoice system transforming retail billing from manual to automated. 
    - Email (optional)
    - Phone (optional)
 3. Add items:
-   - Enter item name, quantity, and unit price
+   - Enter item name, quantity, and unit price for each item
    - Click **"+ Add Item"** to add more items
    - Click **"✕"** to remove an item
-4. Review the calculated totals (subtotal, tax, grand total)
+4. Review the calculated totals (subtotal, tax, grand total) and the currency
 5. Click **"Generate Invoice"** to save
 
 ### Viewing Invoices
 1. Switch to the **"View Invoices"** tab
 2. Click on any invoice card to view full details
-3. Use the **"🔄 Refresh"** button to refresh the list
+3. Use the **"Refresh"** button to refresh the list
 
 ### Invoice Details
 
 When viewing an invoice, you can:
 - See all customer and item information
 - View the complete breakdown of costs
-- Print the invoice using the **"🖨️ Print Invoice"** button
-- Delete the invoice using the **"🗑️ Delete Invoice"** button
+- Print the invoice using the **"Print Invoice"** button
+- Delete the invoice using the **"Delete Invoice"** button
 
 ## Project Structure
 
